@@ -1,0 +1,14 @@
+.box {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  background-color: burlywood;
+  padding: 10px;
+  border: 6px solid black;
+  margin: 5px;
+}
+
+.box:nth-child(2n + 2) {
+  background-color: aqua;
+}
