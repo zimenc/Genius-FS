@@ -1,7 +1,14 @@
-.box {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 100px;
+* {
+  box-sizing: border-box; /* Box Sizing - визначає як вираховується розмір елементу (ширина і висота). Якщо box-sizing немає, ширина і висота задається до основного 
+  контенту, а відступи border i padding додадуться окремо. А з box-sizing ми задаємо максимальні розміри всього елементу */
+}
+
+.flex-container {
+  display: flex;
+}
+
+.item {
+  flex-basis: 100px;
   height: 100px;
   background-color: burlywood;
   padding: 10px;
@@ -9,6 +16,15 @@
   margin: 5px;
 }
 
-.box:nth-child(2n + 2) {
-  background-color: aqua;
+.item:nth-child(2) {
+  order: 1;
+  width: 50px;
+  height: 50px;
+  align-self: flex-end;
+}
+
+.item:nth-child(3) {
+  order: 2;
+  width: 80px;
+  height: 80px;
 }

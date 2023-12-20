@@ -24,21 +24,28 @@
 }
 
 :root {
-  --color-brand-light: #819b57;
+  --color-brand-light: #cfcfbc;
+  --color-brand-normal: #819b57;
   --color-brand-dark: #465929;
   --color-primary-dark: #31261a;
-  --color-primary-light: #faf4ea;
+  --color-secondary-dark: #a18268;
+  --color-primary-normal: #faf4ea;
   --color-footer: #a18268;
 }
 
 /* Global-Base Style */
 
-* {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Box Sizing - визначає як вираховується розмір елементу (ширина і висота). Якщо box-sizing немає, ширина і висота задається до основного 
+  контенту, а відступи border i padding додадуться окремо. А з box-sizing ми задаємо максимальні розміри всього елементу і до псевдоелементів */
 }
 
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -48,7 +55,7 @@ body {
   font-weight: 400;
   font-style: normal;
   line-height: 1.5;
-  background-color: var(--color-primary-light);
+  background-color: var(--color-primary-normal);
   margin: 0;
 }
 
@@ -64,6 +71,10 @@ h5,
 h6,
 p {
   margin-top: 0;
+}
+
+a {
+  display: inline-block;
 }
 
 .section {
@@ -86,14 +97,44 @@ p {
   margin: 0 auto;
 }
 
+/* Header */
+
+header {
+  background-color: grey;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  gap: 40px;
+}
+
+.header-menu {
+  display: flex;
+  gap: 64px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
 /* Hero Section */
 
 .hero-section {
+  background-image: url('../images/background-main.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
   padding: 272px 0;
 }
 
 .hero-title {
-  color: var(--color-primary-light);
+  color: var(--color-primary-normal);
   margin-bottom: 0;
   text-align: center;
   font-size: 128px;
@@ -101,7 +142,7 @@ p {
 }
 
 .hero-title .accent {
-  color: var(--color-brand-light);
+  color: var(--color-brand-normal);
 }
 
 /* Traditions section */
@@ -111,29 +152,50 @@ p {
   padding-bottom: 48px;
 }
 
+.traditions-container {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.traditions-content {
+  max-width: 710px;
+}
+
 .traditions-title {
   margin-bottom: 42px;
 }
 
 .traditions-text .brand-uppercase {
-  color: var(--color-brand-light);
+  color: var(--color-brand-normal);
   text-transform: uppercase;
   font-weight: 600;
 }
 
 .traditions-text .brand-lowercase {
-  color: var(--color-brand-light);
+  color: var(--color-brand-normal);
   font-weight: 600;
 }
 
-/* Advantages */
+.traditions-text:nth-child(3) {
+  max-width: 340px;
+}
+
+/* Advantages section */
+
+.advantages-section {
+  padding: 16px 0;
+  background-color: var(--color-brand-normal);
+}
 
 .advantages-list {
-  background-color: var(--color-brand-light);
-  color: var(--color-primary-light);
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 .advantages-item {
+  color: var(--color-primary-normal);
   font-size: 20px;
   font-weight: 300;
 }
@@ -145,13 +207,43 @@ p {
   line-height: 1.3;
 }
 
+.section-title.centered {
+  text-align: center;
+}
+
 .section-title .accent {
+  /*There is a space here, because accent is a span */
   color: var(--color-brand-dark);
 }
 
 /* Chefs section */
+
 .chefs-title {
-  margin-bottom: 80px;
+  margin: 0 auto 80px;
+  max-width: 520px;
+}
+
+.chefs-title::before,
+.chefs-title::after {
+  display: flex;
+  width: 352px;
+  border: 2px var(--color-brand-light) solid;
+  content: '';
+}
+
+.chefs-list {
+  display: flex;
+  gap: 50px 30px;
+  flex-wrap: wrap;
+}
+
+.chef-item {
+  flex-basis: calc((100% - 30px) / 2);
+}
+
+.chef-card {
+  display: flex;
+  gap: 30px;
 }
 
 .chef-name {
@@ -160,10 +252,53 @@ p {
   font-weight: 600;
 }
 
+.chef-photo {
+  border-radius: 4px 4px 4px 200px;
+  box-shadow: -16px 16px 0px 0px var(--color-primary-normal),
+    -16px 16px 0 1px var(--color-secondary-dark);
+}
+
+.chefs-text p {
+  margin-bottom: 24px;
+}
+
+.chefs-text p:last-child {
+  margin-bottom: 0;
+}
+
 /* Formats */
+
+.all-cards {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.formats-list {
+  display: flex;
+  gap: 20px;
+}
+
+.format-card {
+  padding: 24px;
+  height: 444px;
+  width: 349px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(49, 38, 26, 0) 55%,
+    rgba(49, 38, 26, 0.71) 73%,
+    var(--color-primary-dark) 100%
+  );
+  border-radius: 16px;
+  border: solid lightgray; /* remove later*/
+}
 
 .formats-title {
   margin-bottom: 80px;
+}
+
+.foramts-item {
+  flex-basis: calc((100% -40px) / 3);
 }
 
 .format-name {
@@ -177,7 +312,42 @@ p {
   font-weight: 300;
 }
 
+/* Carousel */
+
+.carousel-button {
+  padding: 0;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--color-brand-dark);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.carousel-button:hover {
+  background-color: var(--color-primary-dark);
+  fill: var(--color-primary-normal);
+}
+
 /* Contacts Section */
+
+.contacts-section {
+  padding-bottom: 96px;
+}
+
+.contacts-container {
+  display: flex;
+  gap: 32px;
+}
+
+.contacts-map {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 16px;
+}
 
 .contacts-title {
   margin-bottom: 16px;
@@ -187,10 +357,10 @@ p {
 
 .button {
   padding: 16px 32px;
-  color: var(--color-primary-light);
+  color: var(--color-primary-normal);
   border-radius: 8px;
-  border: 2px solid var(--color-brand-light);
-  background-color: var(--color-brand-light);
+  border: 2px solid var(--color-brand-normal);
+  background-color: var(--color-brand-normal);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   font-size: 18px;
@@ -198,34 +368,72 @@ p {
 }
 
 .button:hover {
-  color: var(--color-brand-light);
+  color: var(--color-brand-normal);
   background-color: transparent;
 }
 
 /* Links Section */
 
 .links {
-  color: var(--color-primary-light);
+  color: var(--color-primary-normal);
   text-decoration: none;
   line-height: 1.5;
 }
 
 .links:hover {
-  color: var(--color-brand-light);
-  font-weight: 600;
+  color: var(--color-brand-normal);
 }
 
 /* Footer */
 
+.footer {
+  padding: 32px 0;
+  background-color: var(--color-primary-dark);
+  background-image: url('/images/footer.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.footer-container {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-nav,
+.footer-address {
+  display: flex;
+  flex-basis: 50%;
+  gap: 20px;
+}
+
+.footer-logo,
+.footer-menu {
+  flex-grow: 1;
+}
+
+.address-list,
+.address-copyright {
+  flex-grow: 1;
+}
+
+.address-icon {
+  fill: var(--color-primary-normal);
+}
+
+.address-icon:hover {
+  fill: var(--color-brand-normal);
+}
+
 .address-links {
-  color: var(--color-primary-light);
+  color: var(--color-primary-normal);
   font-size: 16px;
   font-weight: 300;
   text-decoration: none;
 }
 
 .address-links:hover {
-  color: var(--color-brand-light);
+  color: var(--color-brand-normal);
   font-size: 16px;
   font-weight: 300;
 }
