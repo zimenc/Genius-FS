@@ -32,7 +32,9 @@
               <li><a class="links" href="#contacts-section">Контакти</a></li>
             </ul>
           </nav>
-          <button class="button" type="button">Замовити дзвінок</button>
+          <button class="button modal-btn-open" type="button">
+            Замовити дзвінок
+          </button>
         </div>
       </div>
     </header>
@@ -82,7 +84,8 @@
       <section class="section" id="chefs-section">
         <div class="container">
           <h2 class="chefs-title section-title centered">
-            Наші найкращі <span class="accent">шеф-кухарі</span>
+            Наші найкращі <br />
+            <span class="accent">шеф-кухарі</span>
           </h2>
           <ul class="chefs-list">
             <li class="chef-item">
@@ -101,7 +104,7 @@
                       у життя цікаві та смачні ідеї.
                     </p>
                     <p>
-                      Я випічу для вас <br />
+                      Я випічу для вaс <br />
                       найсмачніщі вироби!
                     </p>
                   </div>
@@ -110,21 +113,23 @@
             </li>
             <li class="chef-item">
               <article class="chef-card">
-                <img class="chef-photo" src="/images/vlad.jpg" alt="Vlad Chef" /
-                >
+                <img
+                  class="chef-photo"
+                  src="/images/vlad.jpg"
+                  alt="Vlad Chef"
+                />
                 <div>
                   <h3 class="chef-name">Влад</h3>
                   <div class="chefs-text">
                     <p>Привіт, я Влад!</p>
                     <p>
                       Мій кодитерський стаж вже 18 років. SHOP BEKERY - це наша
-                      л>юбов, з якою ми ділимось кожен раз з Вами через нашу
+                      любов, з якою ми ділимось кожен раз з Вами через нашу
                       випічку!
                     </p>
                     <p>Я зроблю для вас унікальну начинку на будь який смак!</p>
                   </div>
                 </div>
-                >
               </article>
             </li>
           </ul>
@@ -271,5 +276,12 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop">
+      <div class="modal">
+        <button class="modal-btn-close" type="button">Close</button>
+      </div>
+    </div>
+
+    <script src="/scripts/modal.js"></script>
   </body>
 </html>

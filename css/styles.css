@@ -219,16 +219,25 @@ header {
 /* Chefs section */
 
 .chefs-title {
+  position: relative;
   margin: 0 auto 80px;
-  max-width: 520px;
 }
 
 .chefs-title::before,
 .chefs-title::after {
-  display: flex;
+  position: absolute; /* При задаванні absolute - елемент автоматично стає блоковим. Тому display:flex можна видаляти*/
+  bottom: 24px;
   width: 352px;
   border: 2px var(--color-brand-light) solid;
   content: '';
+}
+
+.chefs-title::before {
+  left: 0;
+}
+
+.chefs-title::after {
+  right: 0;
 }
 
 .chefs-list {
@@ -387,12 +396,35 @@ header {
 /* Footer */
 
 .footer {
+  position: relative;
   padding: 32px 0;
   background-color: var(--color-primary-dark);
   background-image: url('/images/footer.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.footer::before,
+.footer::after {
+  position: absolute;
+  background-repeat: no-repeat;
+  bottom: 0;
+  content: '';
+}
+
+.footer::before {
+  width: 180px;
+  height: 120px;
+  left: 0;
+  background-image: url('../images/bread1.png');
+}
+
+.footer::after {
+  width: 380px;
+  height: 190px;
+  right: 0;
+  background-image: url('../images/bread2.png');
 }
 
 .footer-container {
@@ -442,4 +474,39 @@ header {
   color: var(--color-footer);
   font-size: 14px;
   font-weight: 400;
+}
+
+/* Modal Window - Ask for a Call */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: relative;
+  width: 880px;
+  height: 880px;
+  flex-shrink: 0;
+  border-radius: 32px;
+  background-color: var(--color-primary-normal);
+}
+
+.modal-btn-close {
+  position: absolute;
+  right: 40px;
+  top: 40px;
 }

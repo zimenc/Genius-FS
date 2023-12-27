@@ -3,28 +3,26 @@
   контенту, а відступи border i padding додадуться окремо. А з box-sizing ми задаємо максимальні розміри всього елементу */
 }
 
-.flex-container {
-  display: flex;
+.parent {
+  padding: 20px;
+  border: 1px dotted black;
 }
 
-.item {
-  flex-basis: 100px;
+.item.red {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-color: red;
+}
+
+.item.green {
+  width: 100px;
   height: 100px;
-  background-color: burlywood;
-  padding: 10px;
-  border: 6px solid black;
-  margin: 5px;
+  background-color: green;
 }
 
-.item:nth-child(2) {
-  order: 1;
+.item.blue {
   width: 50px;
   height: 50px;
-  align-self: flex-end;
-}
-
-.item:nth-child(3) {
-  order: 2;
-  width: 80px;
-  height: 80px;
+  background-color: blue;
 }
