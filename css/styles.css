@@ -53,7 +53,6 @@ body {
   font-family: Poppins, sans-serif;
   font-size: 18px;
   font-weight: 400;
-  font-style: normal;
   line-height: 1.5;
   background-color: var(--color-primary-normal);
   margin: 0;
@@ -91,16 +90,20 @@ a {
 }
 
 .container {
-  padding: 0 24px;
   width: 100%;
   max-width: 1288px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* Header */
 
 header {
-  background-color: grey;
+  padding: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .header-container {
@@ -126,7 +129,13 @@ header {
 /* Hero Section */
 
 .hero-section {
-  background-image: url('../images/background-main.jpg');
+  background-image: linear-gradient(
+      103deg,
+      rgba(18, 18, 17, 0.78) 2.03%,
+      rgba(18, 18, 17, 0.6) 58.46%,
+      rgba(18, 18, 17, 0) 90.36%
+    ),
+    url('../images/background-main.jpg');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -199,6 +208,7 @@ header {
   font-size: 20px;
   font-weight: 300;
 }
+
 /* Section Title */
 
 .section-title {
@@ -242,7 +252,7 @@ header {
 
 .chefs-list {
   display: flex;
-  gap: 50px 30px;
+  gap: 40px 30px;
   flex-wrap: wrap;
 }
 
@@ -285,13 +295,14 @@ header {
 
 .formats-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
 .format-card {
-  padding: 24px;
   height: 444px;
   width: 349px;
+  padding: 24px;
   background-image: linear-gradient(
     180deg,
     rgba(49, 38, 26, 0) 55%,
@@ -300,6 +311,12 @@ header {
   );
   border-radius: 16px;
   border: solid lightgray; /* remove later*/
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.format-card:hover {
+  transform: scale(1.05);
 }
 
 .formats-title {
@@ -339,6 +356,10 @@ header {
 .carousel-button:hover {
   background-color: var(--color-primary-dark);
   fill: var(--color-primary-normal);
+}
+
+.carousel-button.next {
+  transform: rotate(180deg);
 }
 
 /* Contacts Section */
@@ -386,7 +407,7 @@ header {
 .links {
   color: var(--color-primary-normal);
   text-decoration: none;
-  line-height: 1.5;
+  transition: color 0.3s;
 }
 
 .links:hover {
@@ -488,6 +509,8 @@ header {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 0;
+  transition: opacity 0.5s, visibility 0.5s;
 }
 
 .backdrop.is-hidden {
@@ -498,8 +521,11 @@ header {
 
 .modal {
   position: relative;
-  width: 880px;
-  height: 880px;
+  width: 100%;
+  max-width: 880px;
+  height: 100%;
+  max-height: 880px;
+  padding: 128px;
   flex-shrink: 0;
   border-radius: 32px;
   background-color: var(--color-primary-normal);
@@ -509,4 +535,13 @@ header {
   position: absolute;
   right: 40px;
   top: 40px;
+}
+
+.modal-btn-close {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  stroke-width: 0;
+  stroke: var(--color-primary-normal);
+  fill: var(--color-primary-normal);
 }
